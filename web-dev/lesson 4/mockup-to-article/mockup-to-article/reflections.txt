@@ -1,0 +1,12 @@
+You've learned a lot about web development so far. I want you to take a moment to write down your thoughts about web development here. Answer the following questions:
+  * What new skills have you learned?
+  * What has been easy?
+  * What has been difficult?
+  * How have you used the problem solving strategies from the first project to overcome challenges so far?
+
+---
+
+  * I learned about the figure and figcaption tags! I also learned how some other formatting tags have changed after learning HTML 4.x years ago.
+  * So far everything has been pretty easy for me.
+  * I haven't run into any difficulties yet.  I was once thrown off by a quiz that asked me to use a specific image, where I was using a cute image of a Chi-weenie dog that I found Google. The answer parsing program didn't like it.
+  * My problem solving strategy for finding out the newer html 5 tag names was comprised of Google and W3Schools.

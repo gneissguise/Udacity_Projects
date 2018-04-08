@@ -1,0 +1,38 @@
+/* add your CSS here */
+.card {
+    width: 300px;
+    box-shadow: 10px 10px #ddd;
+}
+
+.italicized {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px;
+    padding: 10px 10px 10px 10px;
+}
+
+.subcard {
+    width: 300px;
+}
+
+img {
+    padding-bottom: 10px;
+}
+    
+body {
+    font-size: small;
+}

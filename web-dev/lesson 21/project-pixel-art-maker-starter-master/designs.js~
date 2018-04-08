@@ -1,0 +1,97 @@
+//Setting a debug constant to allow console printing
+const debug = true;
+
+//Debugger function
+function debugMsg(msg){
+    if (debug) {
+	console.log("DEBUG: " + msg);
+    }
+}
+
+// Defining a pixelMaker object to contain page elements
+// and pass them around easily
+let pixelMaker = {
+    // Using the mouseDragging value to detect that the mouse had been
+    // clicked and dragged into a new cell allowing smooth drawing!
+    mouseDragging: false
+};
+debugMsg("pixelMaker object declared");
+
+// makeGrid generates a new, clean grid.
+function makeGrid(col, row) {
+    debugMsg("makeGrid(" + col.toString() + "," +
+	  row.toString() + ") invoked");
+    
+    // First, clear the canvas!
+    pixelMaker.canvas.empty();
+    debugMsg("canvas cleared");
+    
+    // Next, draw the new grid for the canvas using arguments passed
+    // to the function parameters col & row!
+    for (var y = 0; y < row; y++)
+    {
+	pixelMaker.canvas.append("<tr class='row'></tr>");
+	let curRow = pixelMaker.canvas.find(".row").last();
+
+	for (var x = 0; x < col; x++){   
+	    curRow.append("<td class='col'></td>");
+	}
+    }
+    debugMsg(col.toString() + "x" + row.toString() + " grid drawn");
+
+    // Define function to fill an element's bg color
+    let fillColor = function (element) {
+	let color = pixelMaker.colorPicker.val();
+	element.css("background-color", color);
+    };
+    
+    // Finally, add listeners to the canvas to "draw" the pixel!
+    pixelMaker.canvas.on("mousedown", ".col", function (event) {
+	fillColor($(this));
+	pixelMaker.mouseDragging = true;
+	debugMsg("canvas mousedown listener invoked");
+    });
+    debugMsg("canvas mousedown listener created");
+
+    pixelMaker.canvas.on("mouseup", ".col", function (event) {
+	pixelMaker.mouseDragging = false;
+	debugMsg("canvas mouseup listener invoked");
+    });
+    debugMsg("canvas mouseup listener created");
+
+    pixelMaker.canvas.on("mouseenter", ".col", function (event) {
+	if (pixelMaker.mouseDragging) {
+	    fillColor($(this));
+	}
+    });
+    debugMsg("canvas mouseenter listener created");   
+}
+
+$(function () {
+    debugMsg("document onload function successful");
+    
+    // Assigning pixel maker elements now the doc is loaded
+    pixelMaker.inputHeight = $("#inputHeight");
+    pixelMaker.inputWidth = $("#inputWidth");
+    pixelMaker.submitBtn = $("input[type=submit]");
+    pixelMaker.colorPicker = $("#colorPicker");
+    pixelMaker.canvas = $("#pixelCanvas");
+    debugMsg("pixelMaker properties defined");
+    
+    // Add click listener to submit button
+    pixelMaker.submitBtn.click(function (event) {
+	// Override default behavior
+	event.preventDefault();
+	debugMsg("submitBtn click event invoked");
+
+	// Set variables to the values from input boxes
+	var x = pixelMaker.inputWidth.val();
+	var y = pixelMaker.inputHeight.val();
+	debugMsg("variables x: " + x.toString() +
+	      " y: " + y.toString() + " defined");
+	
+	// Draw grid with width and height provided from input boxes
+	makeGrid(x, y);
+    });
+    debugMsg("listeners registered and document ready!");
+});

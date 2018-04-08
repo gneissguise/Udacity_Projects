@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pixelero - By Justin Frost</title>
+
+    <!-- My stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Added some cool retro fonts -->
+    <link href="http://allfont.net/allfont.css?fonts=alien-encounters" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=american-retro" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=roboto-thin" rel="stylesheet" type="text/css" />
+
+    <!-- Added jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+    
+    <!-- Using font awesome because their icons are awesome! -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- My .js file is pretty awesome too. -->
+    <script defer src="designs.js"></script>
+  </head>
+
+  <body>
+    <!-- Heading for my page -->
+    <div class="header">pixelero</div>
+    <div class="signature">By Justin Frost</div>
+
+    <!-- Modal window for about (Thanks, w3schools for the inspiration!) -->
+    <div id="modalAbout" class="modal">
+      <div class="modal-content">
+	<div class="modal-title">About</div> 
+	<span id="closeAbout" class="close">&times;</span>
+	<div class="centered">
+	<p>
+	  Hello, my name is <a href="https://s.codepen.io/gneissguise/debug/XePLJg/dGrXWXoLaOdM" target="_blank">Justin Frost</a> (<a href="https://twitter.com/gneissguise" target="_blank">@gneissguise</a>) and this is my <strong>Grow with Google Challenge Scholarship: Front-End Web Dev</strong> project!
+	</p>
+	</div>
+      </div>
+    </div>
+    
+    <!-- Modal window for Settings (Thanks, w3schools for the inspiration!) -->
+    <div id="modalSettings" class="modal">
+      <div class="modal-content">
+	<div class="modal-title">Settings</div>
+	<span id="closeSettings" class="close">&times;</span>
+	<div class="centered">
+	<table class="settings-table">
+	  <tbody>
+	    <tr>
+	      <td>
+		Grid Height
+	      </td>
+	      <td>
+		<input type="number" id="inputHeight" name="height" min="9" max="64" value="16">
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>  
+		Grid Width
+	      </td>
+	      <td>
+		<input type="number" id="inputWidth" name="width" min="9" max="64" value="16">
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>														
+		Pixel Color
+	      </td>
+	      <td>
+		<input type="color" id="colorPicker" value="#ffffff">
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<p class="hint">HINT: Right clicking acts as an eraser!</p>
+	</div>
+	<div class="button-container">
+	  <button id="clear" alt="Clear the canvas">Clear Grid</button>
+	  <button id="save" alt="Save settings and close dialog box">Save Grid</button>
+	</div>
+      </div>
+    </div>
+
+    <!-- The actual pixel grid -->
+    <div class="grid-container">
+      <!-- Custom toolbar that displays in the top-right corner -->
+      <div class="toolbar">
+	<span id="about"><i class="fas fa-info-circle"></i>&nbsp;About</span>
+	<span id="settings"><i class="fas fa-cog"></i>&nbsp;Settings</span>
+      </div>
+
+      <!-- This is the grid we draw on -->
+      <div class="grid-div">
+	<table id="pixelCanvas"></table>
+      </div>
+    </div>
+    
+  </body>
+</html>
